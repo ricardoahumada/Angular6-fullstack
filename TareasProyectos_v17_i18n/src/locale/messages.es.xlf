@@ -92,31 +92,52 @@
         <note priority="1" from="description">Access</note>
         <note priority="1" from="meaning">access</note>
       </trans-unit>
-      <trans-unit id="username" datatype="html">
-        <source>
-        User name
-      </source>
+      <trans-unit id="9643ead56f7c43e26e42066bc2ded3473364bd3b" datatype="html">
+        <source>Your username</source>
         <target>Nombre de usuario</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">username placeholder</note>
+      </trans-unit>
+      <trans-unit id="usernamereq" datatype="html">
+        <source>
+          Username required
+        </source>
+        <target>Nombre de usuario requerido</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/sign-in/sign-in.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
-        <note priority="1" from="description">User name</note>
-        <note priority="1" from="meaning">user name</note>
+        <note priority="1" from="description">Username required</note>
+        <note priority="1" from="meaning">username required</note>
       </trans-unit>
-      <trans-unit id="password" datatype="html">
-        <source>Password</source>
+      <trans-unit id="5b5b91438db5731debea388908f788bab8d3d404" datatype="html">
+        <source>Your password</source>
         <target>Contraseña</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">pass placeholder</note>
+      </trans-unit>
+      <trans-unit id="passwordreq" datatype="html">
+        <source>
+          Password required
+        </source>
+        <target>Contraseña requerida</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/sign-in/sign-in.component.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
-        <note priority="1" from="description">Password</note>
-        <note priority="1" from="meaning">password</note>
+        <note priority="1" from="description">Password required</note>
+        <note priority="1" from="meaning">password required</note>
       </trans-unit>
+
       <trans-unit id="signinerror" datatype="html">
         <source>Invalid username and password</source>
-        <target>INombre de usuario y Contraseña no válidos</target>
+        <target>Nombre de usuario y Contraseña no válidos</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/sign-in/sign-in.component.html</context>
           <context context-type="linenumber">22</context>
