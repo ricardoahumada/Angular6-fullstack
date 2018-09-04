@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
-import {Tarea} from '../modelos/tarea';
+import { Tarea } from '../modelos/tarea';
 
 @Component({
   selector: 'app-tareas',
@@ -8,26 +8,34 @@ import {Tarea} from '../modelos/tarea';
   styleUrls: ['./tareas.component.css']
 })
 export class TareasComponent implements OnInit {
-  textoafiltrar='';
+  textoafiltrar = '';
+
+  @ViewChild("tablaTareas") tableEl: ElementRef;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  tareas:Tarea[]=[
-  new Tarea(1,'Crea html',23,1),
-  new Tarea(2,'Crea js',23,2),
-  new Tarea(3,'Crea TS',23,1),
-  new Tarea(4,'Llevar a producción',23,2),
-  new Tarea(5,'Crea html',23,1),
+  ngAfterViewInit() {
+    console.log(this.tableEl);
+  }
+
+  tareas: Tarea[] = [
+    new Tarea(1, 'Crea html', 23, 1),
+    new Tarea(2, 'Crea js', 23, 2),
+    new Tarea(3, 'Crea TS', 23, 1),
+    new Tarea(4, 'Llevar a producción', 23, 2),
+    new Tarea(5, 'Crea html', 23, 1),
   ];
 
-  borrar(tid: string): void {
-    console.log('Borrar tid de la lista:',tid);
-    for (var i = 0; i < this.tareas.length; ++i) {
-      if(this.tareas[i].tid== parseInt(tid) ) this.tareas.splice(i,1);
-    }
+  borrar(tid: number): void {
+    console.log('Borrar tid de la lista:', tid,this.tableEl);
+    this.tareas=this.tareas.filter(aT=>aT.tid!==tid);   
+  }
+
+  filtra(texto:string){
+    this.textoafiltrar=texto;
   }
 
 }

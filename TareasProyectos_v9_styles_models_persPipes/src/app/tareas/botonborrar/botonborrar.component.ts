@@ -1,6 +1,6 @@
 import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
-import { Tarea } from '../modelos/tarea';
+import { Tarea } from '../../modelos/tarea';
 
 @Component({
   selector: 'boton-borrar',
@@ -9,13 +9,13 @@ import { Tarea } from '../modelos/tarea';
 
 export class BotonBorrarComponent implements OnChanges{
 	@Input() tid: number;
-	@Output() borrarClicked: EventEmitter<string> = new EventEmitter<string>();
+	@Output() borrarClicked: EventEmitter<number> = new EventEmitter<number>();
 
 	ngOnChanges(sc:any): void {
     console.log('ngOnChanges',sc);
   }
 
-  borraTarea(tid:string) {
+  borraTarea(tid:number) {
     console.log('Borrar TID:',tid);
     this.borrarClicked.emit(tid);
   }
