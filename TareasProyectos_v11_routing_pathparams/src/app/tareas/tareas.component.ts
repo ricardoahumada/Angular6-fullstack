@@ -16,11 +16,11 @@ export class TareasComponent implements OnInit {
   }
 
   tareas:Tarea[]=[
-  new Tarea(1,'Crea html',23,1),
-  new Tarea(2,'Crea js',23,2),
-  new Tarea(3,'Crea TS',23,1),
-  new Tarea(4,'Llevar a producción',23,2),
-  new Tarea(5,'Crea html',23,1),
+  new Tarea(1,'Crea html',23,1,1),
+  new Tarea(2,'Crea js',23,2,2),
+  new Tarea(3,'Crea TS',23,1,3),
+  new Tarea(4,'Llevar a producción',23,2,1),
+  new Tarea(5,'Crea html',23,1,2),
   ];
 
   borrar(tid: string): void {

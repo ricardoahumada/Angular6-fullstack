@@ -16,8 +16,8 @@ export class ProyectosComponent implements OnInit {
   }
 
   proyectos:Proyecto[]=[
-  	new Proyecto(1,'Web Cliente a'),
-  	new Proyecto(2,'App Cliente b')
+  	new Proyecto(1,'Web Cliente a',1),
+  	new Proyecto(2,'App Cliente b',2)
   ];
 
 }

@@ -13,6 +13,9 @@ import { DetalleTareaComponent } from './tareas/detalletarea.component';
 import { ListFilterPipe } from './commons/filter.pipe';
 
 import { routing } from './routing';
+import { DetalleProyectoComponent } from './proyectos/detalle-proyecto/detalle-proyecto.component';
+import { DetalleProyectoUsuariosComponent } from './proyectos/detalle-proyecto/detalle-proyecto-usuarios/detalle-proyecto-usuarios.component';
+import { DetalleProyectoTareasComponent } from './proyectos/detalle-proyecto/detalle-proyecto-tareas/detalle-proyecto-tareas.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { routing } from './routing';
     ListFilterPipe,
     BotonBorrarComponent,
     PageNotFoundComponent,
-    DetalleTareaComponent
+    DetalleTareaComponent,
+    DetalleProyectoComponent,
+    DetalleProyectoUsuariosComponent,
+    DetalleProyectoTareasComponent,
   ],
   imports: [
     BrowserModule,

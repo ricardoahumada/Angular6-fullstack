@@ -5,10 +5,14 @@
 		<tr>
 			<th>Id</th>
 			<th>Nombre</th>
+			<th>Responsable</th>
+			<th></th>
 		</tr>
 		<tr *ngFor="let proyecto of proyectos | listFilter : textoafiltrar:'nombre'">
 			<td>{{proyecto.pid}}</td>
 			<td>{{proyecto.nombre}}</td>
+			<td>{{proyecto.responsable}}</td>
+			<td><a href="#" [routerLink]="[proyecto.pid]">ver</a></td>
 		</tr>
 	</table>
 </section>
