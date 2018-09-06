@@ -9,6 +9,7 @@ import { ModelformComponent } from './modelform/modelform.component';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { TemplateformComponent } from './templateform/templateform.component';
 import { Reactiveform2Component } from './reactiveform2/reactiveform2.component';
+import { domainValidatorDirective } from './directives/domain-validator.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { Reactiveform2Component } from './reactiveform2/reactiveform2.component'
     ModelformComponent,
     ReactiveformComponent,
     TemplateformComponent,
-    Reactiveform2Component
+    Reactiveform2Component,
+    domainValidatorDirective
   ],
   imports: [
     BrowserModule,

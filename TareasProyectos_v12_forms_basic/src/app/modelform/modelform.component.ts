@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-modelform',
@@ -16,6 +16,7 @@ export class ModelformComponent implements OnInit {
   myform: FormGroup;
   firstName: FormControl;
   lastName: FormControl;
+  age: FormControl;
   email: FormControl;
   password: FormControl;
   language: FormControl;
@@ -29,6 +30,7 @@ export class ModelformComponent implements OnInit {
   createFormControls() {
     this.firstName = new FormControl('', Validators.required);
     this.lastName = new FormControl('', Validators.required);
+    this.age = new FormControl('', this.ageRangeValidator(14, 80));
     this.email = new FormControl('', [
       Validators.required,
       Validators.pattern("[^ @]*@[^ @]*")
@@ -46,6 +48,7 @@ export class ModelformComponent implements OnInit {
         firstName: this.firstName,
         lastName: this.lastName,
       }),
+      age: this.age,
       email: this.email,
       password: this.password,
       language: this.language
@@ -57,6 +60,15 @@ export class ModelformComponent implements OnInit {
       console.log("Form Submitted!");
       this.myform.reset();
     }
+  }
+
+  ageRangeValidator(min: number, max: number): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: boolean } | null => {
+      if (control.value !== undefined && (isNaN(control.value) || control.value < min || control.value > max)) {
+        return { 'ageRange': true };
+      }
+      return null;
+    };
   }
 
 }
