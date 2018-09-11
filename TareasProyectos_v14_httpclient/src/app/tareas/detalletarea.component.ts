@@ -22,7 +22,12 @@ export class DetalleTareaComponent implements OnInit{
     this._sub = this.route.params.subscribe(params => {
       console.log('params',params);
       let tid = params['tid'];
-      this._tarea=this._tareasService.getTareaById(tid);
+      //this._tarea=this._tareasService.getTareaById(tid);
+      this._tareasService.getTareaByIdFromAPI(tid).subscribe(
+        data => { this._tarea = data;},
+        error=>{console.log('Error on receiving tarea');}
+      );
+
     });
   }
 

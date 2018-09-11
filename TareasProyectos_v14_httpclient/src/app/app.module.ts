@@ -18,6 +18,7 @@ import { TareasService } from './servicios/tareas.service';
 import { ProyectosService } from './servicios/proyectos.service';
 
 import { HttpClientModule } from '@angular/common/http';
+import { AddTareaComponent } from './tareas/add-tarea/add-tarea.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     ListFilterPipe,
     BotonBorrarComponent,
     PageNotFoundComponent,
-    DetalleTareaComponent
+    DetalleTareaComponent,
+    AddTareaComponent
   ],
   imports: [
     BrowserModule,

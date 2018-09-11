@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import {  HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 
+import { environment } from '../../environments/environment';
 import { Tarea } from '../modelos/tarea';
+
+const API_URL = environment.apiUrl;
 
 @Injectable()
 export class TareasService {
@@ -18,7 +21,7 @@ export class TareasService {
 	}
 
 	getTareaById(tid:number):Tarea{
-		return (this._tareas.filter(tarea => tarea.tid == tid)[0]);
+		return (this._tareas.filter(tarea => tarea.id == tid)[0]);
 	}
 
 	borrarTareaById(tid: number): void {
@@ -28,8 +31,9 @@ export class TareasService {
 		}
 	}
 
+	// Desde la API
 	getTareasFromApi(){
-		return this._http.get<Tarea[]>(this._api)
+		return this._http.get<Tarea[]>(`${API_URL}/tareas`)
 		.pipe(
 			tap(data =>this._tareas=data),
 			catchError(this.handleError)
@@ -37,9 +41,37 @@ export class TareasService {
 
 	}
 
-	private handleError(error) {
-		console.error(error);
-		return Observable.throw(error || 'Server error');
+	getTareaByIdFromAPI(tid: number): Observable<Tarea> {
+		return this._http.get<Tarea>(`${API_URL}/tareas/${tid}`)
+			.pipe(
+				tap(data => this._tareas = [data]),
+				catchError(this.handleError)
+			);
 	}
 
+	borrarTareaFromAPIById(tid: number): Observable<any> {
+		return this._http.delete<any>(`${API_URL}/tareas/${tid}`);
+	}
+
+	addTareaToAPI(tarea:Tarea):Observable<any>{
+		const httpOptions = {
+			headers: new HttpHeaders({
+				'Content-Type': 'application/json'
+			})
+		};
+
+		console.log('Tarea:',tarea);
+
+		return this._http.post(`${API_URL}/tareas`, tarea, httpOptions).pipe(
+			tap(data => this._tareas = [...this._tareas,tarea]),
+			catchError(this.handleError)
+		)
+	}
+
+	private handleError(error) {
+		console.error('handleError:',error);
+		return throwError(error || 'Server error');
+	}
+	
+	
 }

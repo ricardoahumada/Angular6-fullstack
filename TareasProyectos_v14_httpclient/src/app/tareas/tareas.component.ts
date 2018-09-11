@@ -18,12 +18,17 @@ export class TareasComponent implements OnInit {
 
   ngOnInit() {
     this._tareasService.getTareasFromApi().subscribe(
-      (tareasfromapi:Tarea[]) => {this.tareas = tareasfromapi;}
+      (tareasfromapi:Tarea[]) => {this.tareas = tareasfromapi;},
+      error => { console.log('Error en traer datos:', error); }
+
     );
   }
 
   borrar(tid: number): void {
-   this._tareasService.borrarTareaById(tid); 
+   this._tareasService.borrarTareaFromAPIById(tid).subscribe(
+     data=>{console.log('data:',data);},
+     error => { console.log('error en borrar datos:', error);}
+   ); 
   }
 
 }
