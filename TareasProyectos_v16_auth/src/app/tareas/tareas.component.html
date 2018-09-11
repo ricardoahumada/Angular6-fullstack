@@ -4,14 +4,14 @@
 	<input [(ngModel)]="textoafiltrar" placeholder="Filtra por descripción"><br><br>
 
 	<table>
-		<tr><th>Tid</th><th>Descripción</th><th>tiempo</th><th>Proyecto</th><th></th><th></th></tr>
+		<tr><th>id</th><th>Descripción</th><th>tiempo</th><th>Proyecto</th><th></th><th></th></tr>
 		<tr *ngFor="let aTar of tareas| listFilter : textoafiltrar:'descripcion'">
-			<td>{{aTar.tid}}</td>
+			<td>{{aTar.id}}</td>
 			<td>{{aTar.descripcion}}</td>
 			<td>{{aTar.tiempo}}</td>
 			<td>{{aTar.proyecto}}</td>
-			<td><a [routerLink]="['/tareas', aTar.tid]">ver</a></td>
-			<td><boton-borrar [tid]="aTar.tid" (borrarClicked)="borrar($event)"></boton-borrar></td>
+			<td><a [routerLink]="['/tareas', aTar.id]">ver</a></td>
+			<td><boton-borrar [id]="aTar.id" (borrarClicked)="borrar($event)"></boton-borrar></td>
 		</tr>
 	</table>
 </section>

@@ -1,12 +1,12 @@
 export class Tarea {
 
-	tid:number;
+	id:number;
 	descripcion:string;
 	tiempo:number;
 	proyecto:number;
 
-	constructor (tid:number,descripcion:string,tiempo:number,proyecto:number){
-		this.tid=tid;
+	constructor (id:number,descripcion:string,tiempo:number,proyecto:number){
+		this.id=id;
 		this.descripcion=descripcion;
 		this.tiempo=tiempo;
 		this.proyecto=proyecto;

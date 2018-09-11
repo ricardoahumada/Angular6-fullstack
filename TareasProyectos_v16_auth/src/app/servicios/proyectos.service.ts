@@ -48,11 +48,10 @@ export class ProyectosService {
 		return Observable.throw(error || 'Server error');
 	}
 
-	public borrarProyecto(pid) {
-		this._proyectos = this._proyectos.filter(item => { return item.pid != pid ? true : false; });
+	public borrarProyecto(id) {
+		this._proyectos = this._proyectos.filter(item => { return item.id != id ? true : false; });
 		this._proyectosSub.next(this._proyectos);
 
-		this._tareaService.borrarTareaByPid(pid);
 	}
 
 }

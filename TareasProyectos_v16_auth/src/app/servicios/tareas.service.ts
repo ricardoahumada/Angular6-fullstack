@@ -21,14 +21,14 @@ export class TareasService {
 		return this._tareas;
 	}
 
-	getTareaById(tid:number):Tarea{
-		return (this._tareas.filter(tarea => tarea.tid == tid)[0]);
+	getTareaById(id:number):Tarea{
+		return (this._tareas.filter(tarea => tarea.id == id)[0]);
 	}
 
-	borrarTareaById(tid: number): void {
-		console.log('Borrar tid de la lista:',tid);
+	borrarTareaById(id: number): void {
+		console.log('Borrar id de la lista:',id);
 		for (var i = 0; i < this._tareas.length; ++i) {
-			if(this._tareas[i].tid == tid ) this._tareas.splice(i,1);
+			if(this._tareas[i].id == id ) this._tareas.splice(i,1);
 		}
 	}
 

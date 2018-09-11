@@ -1,10 +1,10 @@
 export class Proyecto {
 
-	pid:number;
+	id:number;
 	nombre:string;
 
-	constructor (pid:number,nombre:string){
-		this.pid = pid;
+	constructor (id:number,nombre:string){
+		this.id = id;
 		this.nombre = nombre;
 	}
 }
