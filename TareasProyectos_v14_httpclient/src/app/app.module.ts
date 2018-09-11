@@ -17,8 +17,9 @@ import { routing } from './routing';
 import { TareasService } from './servicios/tareas.service';
 import { ProyectosService } from './servicios/proyectos.service';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddTareaComponent } from './tareas/add-tarea/add-tarea.component';
+import { HeaderInterceptorService } from './servicios/header-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,15 @@ import { AddTareaComponent } from './tareas/add-tarea/add-tarea.component';
     routing,
     HttpClientModule
   ],
-  providers: [TareasService, ProyectosService],
+  providers: [
+    TareasService, 
+    ProyectosService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeaderInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

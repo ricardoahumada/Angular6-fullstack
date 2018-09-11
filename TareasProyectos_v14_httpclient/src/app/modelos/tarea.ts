@@ -6,7 +6,7 @@ export class Tarea {
 	proyecto: number;
 	responsable: number;
 	
-	constructor(id: number, descripcion: string, tiempo: number, proyecto: number, responsable?: number) {
+	constructor(id?: number, descripcion?: string, tiempo?: number, proyecto?: number, responsable?: number) {
 	
 		this.id=id;
 		this.descripcion=descripcion;

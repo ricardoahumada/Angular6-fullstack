@@ -23,12 +23,6 @@
       "descripcion": "Llevar a producción",
       "tiempo": 3,
       "proyecto": 2
-    },
-    {
-      "descripcion": "Hola",
-      "tiempo": 5,
-      "proyecto": 1,
-      "id": 5
     }
   ],
   "proyectos": [

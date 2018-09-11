@@ -27,7 +27,7 @@ export class TareasService {
 	borrarTareaById(tid: number): void {
 		console.log('Borrar tid de la lista:',tid);
 		for (var i = 0; i < this._tareas.length; ++i) {
-			if(this._tareas[i].tid == tid ) this._tareas.splice(i,1);
+			if(this._tareas[i].id == tid ) this._tareas.splice(i,1);
 		}
 	}
 
