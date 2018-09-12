@@ -8,16 +8,16 @@ import { Tarea } from '../modelos/tarea';
 })
 
 export class BotonBorrarComponent implements OnChanges{
-	@Input() tid: number;
-	@Output() borrarClicked: EventEmitter<string> = new EventEmitter<string>();
+	@Input() id: number;
+	@Output() borrarClicked: EventEmitter<number> = new EventEmitter<number>();
 
 	ngOnChanges(sc:any): void {
-    console.log('ngOnChanges',sc);
+    // console.log('ngOnChanges',sc);
   }
 
-  borraTarea(tid:string) {
-    console.log('Borrar TID:',tid);
-    this.borrarClicked.emit(tid);
+  borraTarea(id:number) {
+    console.log('Borrar ID:',id);
+    this.borrarClicked.emit(id);
   }
 
 }

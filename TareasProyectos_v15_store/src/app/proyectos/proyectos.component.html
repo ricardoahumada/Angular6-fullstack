@@ -8,9 +8,9 @@
 			<th>Borrar</th>
 		</tr>
 		<tr *ngFor="let proyecto of proyectos | listFilter : textoafiltrar:'nombre'">
-			<td>{{proyecto.pid}}</td>
+			<td>{{proyecto.id}}</td>
 			<td>{{proyecto.nombre}}</td>
-			<td><button (click)="borrarProyecto(proyecto.pid)">x</button></td>
+			<td><button (click)="borrarProyecto(proyecto.id)">x</button></td>
 		</tr>
 	</table>
 </section>

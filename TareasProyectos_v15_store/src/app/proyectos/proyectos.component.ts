@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Proyecto } from '../modelos/proyecto';
 
-import { ProyectosService } from '../servicios/proyectos.service';
+import { ProyectosStoreService } from '../stores/proyectos-store.service';
 
 
 @Component({
@@ -14,10 +14,10 @@ export class ProyectosComponent implements OnInit {
   proyectos: Proyecto[];
   _suscription: any;
 
-  constructor(private _proyectosService: ProyectosService) { }
+  constructor(private _proyectosStore: ProyectosStoreService) { }
 
   ngOnInit() {
-    this._suscription = this._proyectosService.getProyectosFromApi().subscribe(
+    this._suscription = this._proyectosStore.getProyectos().subscribe(
       (proyectosfromapi: Proyecto[]) => {
         console.log('proyectosfromapi', proyectosfromapi);
         this.proyectos = proyectosfromapi;
@@ -30,7 +30,7 @@ export class ProyectosComponent implements OnInit {
   }
 
   borrarProyecto(pid) {
-    this._proyectosService.borrarProyecto(pid);
+    this._proyectosStore.borrarProyecto(pid).subscribe();
   }
 
 }

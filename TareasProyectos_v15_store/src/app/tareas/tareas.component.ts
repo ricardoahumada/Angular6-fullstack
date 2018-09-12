@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Tarea} from '../modelos/tarea';
+import { TareasStoreService } from '../stores/tareas-store.service';
+import { Subscription } from 'rxjs';
 
-import { TareasService } from '../servicios/tareas.service';
 
 
 @Component({
@@ -13,17 +14,22 @@ import { TareasService } from '../servicios/tareas.service';
 export class TareasComponent implements OnInit {
   textoafiltrar='';
   tareas:Tarea[];
+  $tareasObs:Subscription;
 
-  constructor(private _tareasService:TareasService) { }
+  constructor(private _tareasStore:TareasStoreService) { }
 
   ngOnInit() {
-    this._tareasService.getTareasFromApi().subscribe(
+    this.$tareasObs=this._tareasStore.getTareas().subscribe(
       (tareasfromapi:Tarea[]) => {this.tareas = tareasfromapi;}
     );
   }
 
   borrar(tid: number): void {
-   this._tareasService.borrarTareaById(tid); 
+    this._tareasStore.borrarTareaById(tid).subscribe(); 
+  }
+
+  ngOnDestroy(){
+    this.$tareasObs.unsubscribe();
   }
 
 }

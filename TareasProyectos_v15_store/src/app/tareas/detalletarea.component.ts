@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Tarea } from '../modelos/tarea';
 
-import { TareasService } from '../servicios/tareas.service';
+import { TareasStoreService } from '../stores/tareas-store.service';
 
 @Component({
   selector: 'detalle-tarea',
@@ -14,7 +14,7 @@ export class DetalleTareaComponent implements OnInit{
   private _sub:any;
   private _tarea:Tarea;
 
-  constructor(private route: ActivatedRoute, private _tareasService:TareasService) {
+  constructor(private route: ActivatedRoute, private _tareasStore:TareasStoreService) {
   }
 
   ngOnInit() {
@@ -22,7 +22,7 @@ export class DetalleTareaComponent implements OnInit{
     this._sub = this.route.params.subscribe(params => {
       console.log('params',params);
       let tid = params['tid'];
-      this._tarea=this._tareasService.getTareaById(tid);
+      // this._tarea=this._tareasStore.getTareaById(tid);
     });
   }
 

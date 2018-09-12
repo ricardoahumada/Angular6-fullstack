@@ -14,10 +14,12 @@ import { ListFilterPipe } from './commons/filter.pipe';
 
 import { routing } from './routing';
 
-import { TareasService } from './servicios/tareas.service';
-import { ProyectosService } from './servicios/proyectos.service';
+import { TareasAPIService } from './servicios/tareas.api.service';
+import { ProyectosAPIService } from './servicios/proyectos.api.service';
 
 import { HttpClientModule } from '@angular/common/http';
+import { TareasStoreService } from './stores/tareas-store.service';
+import { ProyectosStoreService } from './stores/proyectos-store.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     routing,
     HttpClientModule
   ],
-  providers: [TareasService, ProyectosService],
+  providers: [TareasAPIService, TareasStoreService, ProyectosStoreService, ProyectosAPIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
