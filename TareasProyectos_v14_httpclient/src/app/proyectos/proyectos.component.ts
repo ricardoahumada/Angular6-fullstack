@@ -12,6 +12,7 @@ import { ProyectosService } from '../servicios/proyectos.service';
 })
 export class ProyectosComponent implements OnInit {
   proyectos:Proyecto[];
+  textoafiltrar:string='';
 
   constructor(private _proyectosService:ProyectosService) { }
 

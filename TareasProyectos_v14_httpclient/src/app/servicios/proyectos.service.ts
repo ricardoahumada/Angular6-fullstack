@@ -8,7 +8,7 @@ import { Proyecto } from '../modelos/proyecto';
 export class ProyectosService {
 	private _proyectos:Proyecto[];
 
-	private _api="http://www.mocky.io/v2/5a2bf7b32f0000871103932f";
+	private _api="http://www.mocky.io/v2/5cb3a4aa330000670011b6e5";
 
 	constructor(private _http: HttpClient){
 	}
@@ -18,7 +18,13 @@ export class ProyectosService {
 	}
 
 	getProyectosFromApi(){
-		return this._http.get<Proyecto[]>(this._api)
+		const httpOptions = {
+			headers: {
+				'Origin': 'localhost'
+			}
+		};
+
+		return this._http.get<Proyecto[]>(this._api, httpOptions)
 		.pipe(
 			tap(data => this._proyectos = data),
 			catchError(this.handleError)

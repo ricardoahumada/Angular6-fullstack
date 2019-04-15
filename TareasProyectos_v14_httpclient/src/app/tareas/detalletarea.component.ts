@@ -12,9 +12,9 @@ import { TareasService } from '../servicios/tareas.service';
 
 export class DetalleTareaComponent implements OnInit{
   private _sub:any;
-  private _tarea:Tarea;
+  tarea:Tarea;
 
-  constructor(private route: ActivatedRoute, private _tareasService:TareasService) {
+  constructor(private route: ActivatedRoute, private tareasService:TareasService) {
   }
 
   ngOnInit() {
@@ -22,9 +22,9 @@ export class DetalleTareaComponent implements OnInit{
     this._sub = this.route.params.subscribe(params => {
       console.log('params',params);
       let tid = params['tid'];
-      //this._tarea=this._tareasService.getTareaById(tid);
-      this._tareasService.getTareaByIdFromAPI(tid).subscribe(
-        data => { this._tarea = data;},
+      //this.tarea=this.tareasService.getTareaById(tid);
+      this.tareasService.getTareaByIdFromAPI(tid).subscribe(
+        data => { this.tarea = data;},
         error=>{console.log('Error on receiving tarea');}
       );
 

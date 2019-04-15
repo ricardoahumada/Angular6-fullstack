@@ -13,7 +13,7 @@ export class HeaderInterceptorService implements HttpInterceptor {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'myheader':'my value'
+      //'myheader':'my value'
     })
 
     request = request.clone({
